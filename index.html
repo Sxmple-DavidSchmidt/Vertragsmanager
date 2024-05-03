@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li onclick="selectItem(this)">Item 1</li>
+                <li onclick="selectItem(this)">Item 2</li>
+                <li onclick="selectItem(this)">Item 3</li>
+                <li onclick="selectItem(this)">Item 4</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="button-bar">
+                    <button>Anzeigen</button>
+                    <button>Bearbeiten</button>
+                    <button>Erstellen</button>
+                    <button>Löschen</button>
+                </div>
+                <div class="button-bar">
+                    <button>Filter</button>
+                    <input type="text" class="search-bar" placeholder="Search...">
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                        <th>Column 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                    </tr>
+                    <tr>
+                        <td>Data 4</td>
+                        <td>Data 5</td>
+                        <td>Data 6</td>
+                    </tr>
+                    <tr>
+                        <td>Data 7</td>
+                        <td>Data 8</td>
+                        <td>Data 9</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function selectItem(element) {
+            const items = document.querySelectorAll('.sidebar li');
+            items.forEach(item => {
+                item.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
