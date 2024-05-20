@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/Dashboard/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <ul>
+            <li th:each="company: ${companies}" th:text="${company.getName()}">Item 1</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="top-bar">
+            <div class="button-bar">
+                <button>Anzeigen</button>
+                <button>Bearbeiten</button>
+                <button>Erstellen</button>
+                <button>Löschen</button>
+            </div>
+            <div class="button-bar">
+                <button>Filter</button>
+                <input type="text" class="search-bar" placeholder="Search...">
+            </div>
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr>
+                    <th>Partner</th>
+                    <th>Title</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="contract: ${contracts}">
+                        <td th:text="${contract.getPartner().getName()}"></td>
+                        <td th:text="${contract.getTitle()}"></td>
+                        <td th:text="${contract.getValue()}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+        function selectItem(element) {
+            const items = document.querySelectorAll('.sidebar li');
+            items.forEach(item => {
+                item.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
