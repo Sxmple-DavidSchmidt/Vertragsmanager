@@ -1,19 +1,20 @@
 package com.simple.datastructures;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Contract {
     private final int id;
     private final String title;
     private final CompanyContact contact;
-    private final Date startDate;
-    private final Date endDate;
+    private final LocalDate startDate;
+    private final LocalDate endDate;
     private final double estimatedValue;
     private final Contract relatedContract;
     private final ContractState contractState;
     private final String content;
 
-    public Contract(int id, String title, CompanyContact contact, Date startDate, Date endDate, double estimatedValue, Contract relatedContract, ContractState state, String content) {
+    public Contract(int id, String title, CompanyContact contact, LocalDate startDate, LocalDate endDate, double estimatedValue, Contract relatedContract, ContractState state, String content) {
         this.id = id;
         this.title = title;
         this.contact = contact;
@@ -37,11 +38,11 @@ public class Contract {
         return contact;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 

@@ -1,6 +1,5 @@
 package com.simple.datastructures;
-
-import java.util.Date;
+import java.time.LocalDate;
 
 public class DataManager {
     private static Company[] companies;
@@ -50,26 +49,26 @@ public class DataManager {
 
         if (contracts == null) {
             contracts = new Contract[] {
-                    new Contract(0, "Sanitary Services", contacts[0], new Date(1945, 10, 10), new Date(1955, 5, 23), 100_000_000, null, ContractState.ARCHIVED, "CONTENT!"),
-                    new Contract(1, "Supply management", contacts[1], new Date(2015, 3, 1), new Date(2024, 10, 24), 250_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(2, "Software Development", contacts[2], new Date(2020, 6, 15), new Date(2023, 6, 15), 500_000, null, ContractState.PENDING, "CONTENT!"),
-                    new Contract(3, "Consulting Services", contacts[3], new Date(2018, 8, 20), new Date(2025, 8, 20), 150_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(4, "Security Systems", contacts[4], new Date(2019, 2, 10), new Date(2022, 2, 10), 300_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(5, "Marketing Campaign", contacts[0], new Date(2023, 1, 1), new Date(2024, 12, 31), 200_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(6, "Event Management", contacts[1], new Date(2022, 4, 15), new Date(2023, 4, 15), 350_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(7, "Product Design", contacts[2], new Date(2023, 8, 1), new Date(2025, 8, 1), 450_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(8, "Legal Services", contacts[3], new Date(2024, 3, 10), new Date(2026, 3, 10), 300_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(9, "Transportation Logistics", contacts[4], new Date(2023, 6, 20), new Date(2024, 6, 20), 280_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(10, "Human Resources Training", contacts[0], new Date(2021, 9, 5), new Date(2023, 9, 5), 150_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(11, "Healthcare Services", contacts[1], new Date(2017, 7, 10), new Date(2025, 7, 10), 400_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(12, "IT Support", contacts[2], new Date(2022, 5, 12), new Date(2023, 5, 12), 180_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(13, "Financial Consulting", contacts[3], new Date(2023, 4, 1), new Date(2026, 4, 1), 320_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(14, "Construction Management", contacts[4], new Date(2022, 2, 20), new Date(2024, 2, 20), 600_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(15, "Public Relations", contacts[0], new Date(2024, 1, 5), new Date(2026, 1, 5), 280_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(16, "Environmental Services", contacts[1], new Date(2019, 10, 15), new Date(2025, 10, 15), 420_000, null, ContractState.RUNNING, "CONTENT!"),
-                    new Contract(17, "Educational Programs", contacts[2], new Date(2023, 3, 8), new Date(2025, 3, 8), 200_000, null, ContractState.PENDING, "CONTENT!"),
-                    new Contract(18, "Retail Merchandising", contacts[3], new Date(2020, 12, 1), new Date(2022, 12, 1), 150_000, null, ContractState.ARCHIVED, "CONTENT!"),
-                    new Contract(19, "Telecommunications Services", contacts[4], new Date(2021, 6, 30), new Date(2024, 6, 30), 350_000, null, ContractState.RUNNING, "CONTENT!")
+                    new Contract(0, "Sanitary Services", contacts[0], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 100_000_000, null, ContractState.ARCHIVED, "CONTENT!"),
+                    new Contract(1, "Supply management", contacts[1], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 250_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(2, "Software Development", contacts[2], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 500_000, null, ContractState.PENDING, "CONTENT!"),
+                    new Contract(3, "Consulting Services", contacts[3], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 150_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(4, "Security Systems", contacts[4], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 300_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(5, "Marketing Campaign", contacts[0], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 200_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(6, "Event Management", contacts[1], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 350_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(7, "Product Design", contacts[2], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 450_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(8, "Legal Services", contacts[3], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 300_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(9, "Transportation Logistics", contacts[4], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 280_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(10, "Human Resources Training", contacts[0], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 150_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(11, "Healthcare Services", contacts[1], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 400_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(12, "IT Support", contacts[2], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 180_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(13, "Financial Consulting", contacts[3], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 320_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(14, "Construction Management", contacts[4], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 600_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(15, "Public Relations", contacts[0], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 280_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(16, "Environmental Services", contacts[1], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 420_000, null, ContractState.RUNNING, "CONTENT!"),
+                    new Contract(17, "Educational Programs", contacts[2], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 200_000, null, ContractState.PENDING, "CONTENT!"),
+                    new Contract(18, "Retail Merchandising", contacts[3], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 150_000, null, ContractState.ARCHIVED, "CONTENT!"),
+                    new Contract(19, "Telecommunications Services", contacts[4], LocalDate.of(1945, 10, 10), LocalDate.of(1969, 1, 39), 350_000, null, ContractState.RUNNING, "CONTENT!")
             };
         }
     }
