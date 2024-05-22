@@ -1,25 +1,63 @@
 package com.simple.datastructures;
 
-public class Contract {
-    private Company partner;
-    private String title;
-    private double value;
+import java.util.Date;
 
-    public Contract(Company partner, String title, double value) {
-        this.partner = partner;
+public class Contract {
+    private final int id;
+    private final String title;
+    private final CompanyContact contact;
+    private final Date startDate;
+    private final Date endDate;
+    private final double estimatedValue;
+    private final Contract relatedContract;
+    private final ContractState contractState;
+    private final String content;
+
+    public Contract(int id, String title, CompanyContact contact, Date startDate, Date endDate, double estimatedValue, Contract relatedContract, ContractState state, String content) {
+        this.id = id;
         this.title = title;
-        this.value = value;
+        this.contact = contact;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.estimatedValue = estimatedValue;
+        this.relatedContract = relatedContract;
+        this.contractState = state;
+        this.content = content;
     }
 
-    public Company getPartner() {
-        return partner;
+    public int getId() {
+        return id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public double getValue() {
-        return value;
+    public CompanyContact getContact() {
+        return contact;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public double getEstimatedValue() {
+        return estimatedValue;
+    }
+
+    public Contract getRelatedContract() {
+        return relatedContract;
+    }
+
+    public ContractState getContractState() {
+        return contractState;
+    }
+
+    public String getContent() {
+        return content;
     }
 }

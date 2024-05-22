@@ -1,60 +1,78 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" th:href="@{/Dashboard/style.css}">
-</head>
-<body>
-<div class="container">
-    <div class="sidebar">
-        <ul>
-            <li th:each="company: ${companies}" th:text="${company.getName()}">Item 1</li>
-        </ul>
-    </div>
-    <div class="main-content">
-        <div class="top-bar">
-            <div class="button-bar">
-                <button>Anzeigen</button>
-                <button>Bearbeiten</button>
-                <button>Erstellen</button>
-                <button>Löschen</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="stylesheet" th:href="@{/Dashboard/style.css}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="sidebar">
+                <ul id="company-list">
+                    <li th:each="company: ${companies}" th:value="${company.getId()}" th:text="${company.getName()}"></li>
+                </ul>
             </div>
-            <div class="button-bar">
-                <button>Filter</button>
-                <input type="text" class="search-bar" placeholder="Search...">
-            </div>
-        </div>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                <tr>
-                    <th>Partner</th>
-                    <th>Title</th>
-                    <th>Value</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="contract: ${contracts}">
-                        <td th:text="${contract.getPartner().getName()}"></td>
-                        <td th:text="${contract.getTitle()}"></td>
-                        <td th:text="${contract.getValue()}"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+            <div class="main-content">
+                <div class="top-bar">
+                    <div class="button-bar">
+                        <button>Anzeigen</button>
+                        <button>Bearbeiten</button>
+                        <button>Erstellen</button>
+                        <button>Löschen</button>
+                    </div>
+                    <div class="button-bar">
+                        <button>Filter</button>
+                        <input type="text" class="search-bar" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table id="contract-table">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Contract State</th>
+                            <th>Contact</th>
+                            <th>EstimatedValue</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <script>
+                        $(document).ready(function () {
+                            // Add click event listener to list items
+                            $('#company-list li').click(function () {
+                                console.log("HELLO WORLD");
+                                var selectedItem = $(this).attr('value');
 
-<script>
-        function selectItem(element) {
-            const items = document.querySelectorAll('.sidebar li');
-            items.forEach(item => {
-                item.classList.remove('selected');
-            });
-            element.classList.add('selected');
-        }
-    </script>
-</body>
+                                // Make AJAX request to backend
+                                $.ajax({
+                                    url: '/api/contracts/company', // Your backend API endpoint
+                                    type: 'GET',
+                                    data: { item: selectedItem }, // Send selected item as parameter
+                                    success: function (data) {
+                                        // Update table with received data
+                                        updateTable(data);
+                                    },
+                                    error: function (xhr, status, error) {
+                                        console.error(error);
+                                    }
+                                });
+                            });
+
+                            function updateTable(data) {
+                                $('#contract-table tbody').empty();
+                                data.forEach(function (row) {
+                                    console.log(row)
+                                    $('#contract-table tbody').append('<tr><td>' + row.title + '</td><td>' + row.contractState + '</td><td>' + row.contact.name + '</td><td>' + row.estimatedValue + '</td></tr>');
+                                });
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
