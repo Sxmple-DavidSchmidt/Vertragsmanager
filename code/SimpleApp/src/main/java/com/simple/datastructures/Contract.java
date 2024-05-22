@@ -1,7 +1,6 @@
 package com.simple.datastructures;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Contract {
     private final int id;
