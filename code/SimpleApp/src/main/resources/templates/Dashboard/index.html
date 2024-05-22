@@ -11,7 +11,7 @@
         <div class="container">
             <div class="sidebar">
                 <ul id="company-list">
-                    <li th:each="company: ${companies}" th:value="${company.getId()}" th:text="${company.getName()}"></li>
+                    <li th:each="company: ${companies}" th:value="${company.id()}" th:text="${company.name()}"></li>
                 </ul>
             </div>
             <div class="main-content">
@@ -44,7 +44,6 @@
                         $(document).ready(function () {
                             // Add click event listener to list items
                             $('#company-list li').click(function () {
-                                console.log("HELLO WORLD");
                                 var selectedItem = $(this).attr('value');
 
                                 // Make AJAX request to backend
